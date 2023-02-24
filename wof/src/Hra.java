@@ -86,30 +86,7 @@ public class Hra  {
         System.out.println("World of FRI je nova, neuveritelne nudna adventura.");
         System.out.println("Zadaj 'pomoc' ak potrebujes pomoc.");
         System.out.println();
-        System.out.println("Teraz si v miestnosti " + this.aktualnaMiestnost.getPopis());
-        System.out.print("Vychody: ");
-        if (this.aktualnaMiestnost.getSevernyVychod() != null) {
-            System.out.print("sever ");
-        }
-        if (this.aktualnaMiestnost.getVychodnyVychod() != null) {
-            System.out.print("vychod ");
-        }
-        if (this.aktualnaMiestnost.getJuznyVychod() != null) {
-            System.out.print("juh ");
-        }
-        if (this.aktualnaMiestnost.getZapadnyVychod() != null) {
-            System.out.print("zapad ");
-        }
-
-        System.out.println();
-
-        if (!this.aktualnaMiestnost.getPredmety().isEmpty()) {
-            System.out.print("Predmety v miestnosti: ");
-            for (Predmet predmet : this.aktualnaMiestnost.getPredmety()) {
-                System.out.printf("%s ", predmet.getNazov());
-            }
-            System.out.println();
-        }
+        this.aktualnaMiestnost.vypisInfoOMiestnosti();
     }
 
     /**
@@ -197,29 +174,7 @@ public class Hra  {
             System.out.println("Tam nie je vychod!");
         } else {
             this.aktualnaMiestnost = novaMiestnost;
-            System.out.println("Teraz si v miestnosti " + this.aktualnaMiestnost.getPopis());
-            System.out.print("Vychody: ");
-            if (this.aktualnaMiestnost.getSevernyVychod() != null) {
-                System.out.print("sever ");
-            }
-            if (this.aktualnaMiestnost.getVychodnyVychod() != null) {
-                System.out.print("vychod ");
-            }
-            if (this.aktualnaMiestnost.getJuznyVychod() != null) {
-                System.out.print("juh ");
-            }
-            if (this.aktualnaMiestnost.getZapadnyVychod() != null) {
-                System.out.print("zapad ");
-            }
-            System.out.println();
-
-            if (!this.aktualnaMiestnost.getPredmety().isEmpty()) {
-                System.out.print("Predmety v miestnosti: ");
-                for (Predmet predmet : this.aktualnaMiestnost.getPredmety()) {
-                    System.out.printf("%s ", predmet.getNazov());
-                }
-                System.out.println();
-            }
+            this.aktualnaMiestnost.vypisInfoOMiestnosti();
         }
     }
 

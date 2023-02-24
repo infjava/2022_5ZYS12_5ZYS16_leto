@@ -57,13 +57,6 @@ public class Miestnost {
     }
 
     /**
-     * @return textovy popis miestnosti.
-     */
-    public String getPopis() {
-        return this.popisMiestnosti;
-    }
-
-    /**
      * polozi predmet do miestnosti
      * @param predmet pokladany predmet
      */
@@ -103,7 +96,30 @@ public class Miestnost {
         return this.zapadnyVychod;
     }
 
-    public ArrayList<Predmet> getPredmety() {
-        return this.predmety;
+    void vypisInfoOMiestnosti() {
+        System.out.println("Teraz si v miestnosti " + this.popisMiestnosti);
+        System.out.print("Vychody: ");
+        if (this.severnyVychod != null) {
+            System.out.print("sever ");
+        }
+        if (this.vychodnyVychod != null) {
+            System.out.print("vychod ");
+        }
+        if (this.juznyVychod != null) {
+            System.out.print("juh ");
+        }
+        if (this.zapadnyVychod != null) {
+            System.out.print("zapad ");
+        }
+
+        System.out.println();
+
+        if (!this.predmety.isEmpty()) {
+            System.out.print("Predmety v miestnosti: ");
+            for (Predmet predmet : this.predmety) {
+                System.out.printf("%s ", predmet.getNazov());
+            }
+            System.out.println();
+        }
     }
 }

@@ -1,3 +1,5 @@
+package sk.uniza.fri.wof.prikazy;
+
 /**
  * Trieda prikaz implemntuje casti prikazu, ktore moze hrac zadat.
  * V tejto verzii prikaz tvoria dve slova: nazov prikazu a druhe slovo.

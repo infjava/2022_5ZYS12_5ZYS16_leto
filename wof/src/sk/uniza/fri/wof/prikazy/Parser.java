@@ -1,10 +1,12 @@
+package sk.uniza.fri.wof.prikazy;
+
 import java.util.Scanner;
 
 /**
- * Trieda Parser cita vstup zadany hracom do terminaloveho okna a pokusi sa
+ * Trieda sk.uniza.fri.wof.prikazy.Parser cita vstup zadany hracom do terminaloveho okna a pokusi sa
  * interpretovat ho ako prikaz hry. Kazda sprava dajPrikaz sposobi, ze parser
  * precita jeden riadok z terminaloveho okna a vyberie z neho prve dve slova.
- * Tie dve slova pouzije ako parametre v sprave new triede Prikaz.
+ * Tie dve slova pouzije ako parametre v sprave new triede sk.uniza.fri.wof.prikazy.Prikaz.
  * 
  * @author  Michael Kolling and David J. Barnes
  * @version 2006.03.30

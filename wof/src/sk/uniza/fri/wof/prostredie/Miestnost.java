@@ -1,7 +1,9 @@
+package sk.uniza.fri.wof.prostredie;
+
 import java.util.ArrayList;
 
 /**
- * Trieda Miestnost realizuje jednu miestnost/priestor v celom priestore hry.
+ * Trieda sk.uniza.fri.wof.prostredie.Miestnost realizuje jednu miestnost/priestor v celom priestore hry.
  * Kazda "miestnost" je z inymi miestnostami spojena vychodmi. 
  * Vychody z miestnosti su oznacovane svetovymi stranami sever, vychod, juh
  * a zapad. Pre kazdy vychod si miestnost pamata odkaz na susednu miestnost
@@ -80,7 +82,7 @@ public class Miestnost {
         return null;
     }
 
-    void vypisInfoOMiestnosti() {
+    public void vypisInfoOMiestnosti() {
         System.out.println("Teraz si v miestnosti " + this.popisMiestnosti);
         System.out.print("Vychody: ");
         if (this.severnyVychod != null) {
@@ -107,7 +109,7 @@ public class Miestnost {
         }
     }
 
-    Miestnost getMiestnost(String smer) {
+    public Miestnost getMiestnost(String smer) {
         return switch (smer) {
             case "sever" -> this.severnyVychod;
             case "vychod" -> this.vychodnyVychod;

@@ -1,14 +1,21 @@
+package sk.uniza.fri.wof;
+
+import sk.uniza.fri.wof.prikazy.Parser;
+import sk.uniza.fri.wof.prikazy.Prikaz;
+import sk.uniza.fri.wof.prostredie.Miestnost;
+import sk.uniza.fri.wof.prostredie.Predmet;
+
 import java.util.ArrayList;
 
 /**
- * Trieda Hra je hlavna trieda aplikacie "World of FRI".
+ * Trieda sk.uniza.fri.wof.Hra je hlavna trieda aplikacie "World of FRI".
  * "World of FRI" je velmi jednoducha textova hra - adventura. 
  * Hrac sa moze prechadzat po niektorych priestoroch - miestnostiach fakulty
  * a zbierat/pokladat predmety. To je v tejto verzii vsetko. Hru treba skutocne
  * znacne rozsirit, aby bola zaujimava.
  *
- * Hra vytvori a inicializuje vsetky potebne objekty:
- * vytvori vsetky miestnosti, vytvori parser a zacne hru. Hra tiez vyhodnocuje
+ * sk.uniza.fri.wof.Hra vytvori a inicializuje vsetky potebne objekty:
+ * vytvori vsetky miestnosti, vytvori parser a zacne hru. sk.uniza.fri.wof.Hra tiez vyhodnocuje
  * a vykonava prikazy, ktore vrati parser.
  * 
  * @author  Michael Kolling, David J. Barnes
@@ -221,7 +228,7 @@ public class Hra  {
     /** 
      * Ukonci hru.
      * Skotroluje cely prikaz a zisti, ci je naozaj koniec hry.
-     * Prikaz ukoncenia nema parameter.
+     * sk.uniza.fri.wof.prikazy.Prikaz ukoncenia nema parameter.
      * 
      * @return true, ak prikaz konci hru, inak false.
      */

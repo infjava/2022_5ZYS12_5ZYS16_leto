@@ -1,3 +1,5 @@
+package sk.uniza.fri.wof.prostredie;
+
 public class Predmet {
     private String nazov;
 

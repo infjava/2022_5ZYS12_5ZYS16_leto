@@ -88,24 +88,24 @@ public class Hra  {
         System.out.println();
         System.out.println("Teraz si v miestnosti " + this.aktualnaMiestnost.getPopis());
         System.out.print("Vychody: ");
-        if (this.aktualnaMiestnost.severnyVychod != null) {
+        if (this.aktualnaMiestnost.getSevernyVychod() != null) {
             System.out.print("sever ");
         }
-        if (this.aktualnaMiestnost.vychodnyVychod != null) {
+        if (this.aktualnaMiestnost.getVychodnyVychod() != null) {
             System.out.print("vychod ");
         }
-        if (this.aktualnaMiestnost.juznyVychod != null) {
+        if (this.aktualnaMiestnost.getJuznyVychod() != null) {
             System.out.print("juh ");
         }
-        if (this.aktualnaMiestnost.zapadnyVychod != null) {
+        if (this.aktualnaMiestnost.getZapadnyVychod() != null) {
             System.out.print("zapad ");
         }
 
         System.out.println();
 
-        if (!this.aktualnaMiestnost.predmety.isEmpty()) {
+        if (!this.aktualnaMiestnost.getPredmety().isEmpty()) {
             System.out.print("Predmety v miestnosti: ");
-            for (Predmet predmet : this.aktualnaMiestnost.predmety) {
+            for (Predmet predmet : this.aktualnaMiestnost.getPredmety()) {
                 System.out.printf("%s ", predmet.getNazov());
             }
             System.out.println();
@@ -180,16 +180,16 @@ public class Hra  {
         Miestnost novaMiestnost = null;
         switch (smer) {
             case "sever":
-                novaMiestnost = this.aktualnaMiestnost.severnyVychod;
+                novaMiestnost = this.aktualnaMiestnost.getSevernyVychod();
                 break;
             case "vychod":
-                novaMiestnost = this.aktualnaMiestnost.vychodnyVychod;
+                novaMiestnost = this.aktualnaMiestnost.getVychodnyVychod();
                 break;
             case "juh":
-                novaMiestnost = this.aktualnaMiestnost.juznyVychod;
+                novaMiestnost = this.aktualnaMiestnost.getJuznyVychod();
                 break;
             case "zapad":
-                novaMiestnost = this.aktualnaMiestnost.zapadnyVychod;
+                novaMiestnost = this.aktualnaMiestnost.getZapadnyVychod();
                 break;
         }
 
@@ -199,23 +199,23 @@ public class Hra  {
             this.aktualnaMiestnost = novaMiestnost;
             System.out.println("Teraz si v miestnosti " + this.aktualnaMiestnost.getPopis());
             System.out.print("Vychody: ");
-            if (this.aktualnaMiestnost.severnyVychod != null) {
+            if (this.aktualnaMiestnost.getSevernyVychod() != null) {
                 System.out.print("sever ");
             }
-            if (this.aktualnaMiestnost.vychodnyVychod != null) {
+            if (this.aktualnaMiestnost.getVychodnyVychod() != null) {
                 System.out.print("vychod ");
             }
-            if (this.aktualnaMiestnost.juznyVychod != null) {
+            if (this.aktualnaMiestnost.getJuznyVychod() != null) {
                 System.out.print("juh ");
             }
-            if (this.aktualnaMiestnost.zapadnyVychod != null) {
+            if (this.aktualnaMiestnost.getZapadnyVychod() != null) {
                 System.out.print("zapad ");
             }
             System.out.println();
 
-            if (!this.aktualnaMiestnost.predmety.isEmpty()) {
+            if (!this.aktualnaMiestnost.getPredmety().isEmpty()) {
                 System.out.print("Predmety v miestnosti: ");
-                for (Predmet predmet : this.aktualnaMiestnost.predmety) {
+                for (Predmet predmet : this.aktualnaMiestnost.getPredmety()) {
                     System.out.printf("%s ", predmet.getNazov());
                 }
                 System.out.println();

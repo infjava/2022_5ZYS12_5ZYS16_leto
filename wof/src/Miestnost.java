@@ -80,22 +80,6 @@ public class Miestnost {
         return null;
     }
 
-    public Miestnost getSevernyVychod() {
-        return this.severnyVychod;
-    }
-
-    public Miestnost getJuznyVychod() {
-        return this.juznyVychod;
-    }
-
-    public Miestnost getVychodnyVychod() {
-        return this.vychodnyVychod;
-    }
-
-    public Miestnost getZapadnyVychod() {
-        return this.zapadnyVychod;
-    }
-
     void vypisInfoOMiestnosti() {
         System.out.println("Teraz si v miestnosti " + this.popisMiestnosti);
         System.out.print("Vychody: ");
@@ -121,5 +105,15 @@ public class Miestnost {
             }
             System.out.println();
         }
+    }
+
+    Miestnost getMiestnost(String smer) {
+        return switch (smer) {
+            case "sever" -> this.severnyVychod;
+            case "vychod" -> this.vychodnyVychod;
+            case "juh" -> this.juznyVychod;
+            case "zapad" -> this.zapadnyVychod;
+            default -> null;
+        };
     }
 }

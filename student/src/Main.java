@@ -1,5 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Student fero = new Student("Ferko", "Mrkvicka", "543");
+        Skupina skupina = new Skupina("F007");
+        skupina.pridaj(fero);
+        skupina.vypis();
+
     }
 }

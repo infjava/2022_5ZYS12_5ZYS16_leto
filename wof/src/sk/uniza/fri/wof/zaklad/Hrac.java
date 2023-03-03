@@ -3,6 +3,8 @@ package sk.uniza.fri.wof.zaklad;
 import sk.uniza.fri.wof.prostredie.Miestnost;
 import sk.uniza.fri.wof.prostredie.Predmet;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -56,7 +58,15 @@ public class Hrac {
 
     public void pouziPredmet(String nazovPredmetu) {
         if (this.inventar.containsKey(nazovPredmetu)) {
-            System.out.printf("%s sa neda pouzit%n", nazovPredmetu);
+            switch (nazovPredmetu) {
+                case "hodinky":
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    LocalDateTime now = LocalDateTime.now();
+                    System.out.println(dtf.format(now));
+                    break;
+                default:
+                    System.out.printf("%s sa neda pouzit%n", nazovPredmetu);
+            }
         }
     }
 }

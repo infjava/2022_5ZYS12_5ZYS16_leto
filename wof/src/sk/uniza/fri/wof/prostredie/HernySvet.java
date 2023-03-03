@@ -19,11 +19,11 @@ public class HernySvet {
         labak.nastavVychod("vychod", kancelaria);
         kancelaria.nastavVychod("zapad", labak);
 
-        terasa.polozPredmet(new Predmet("kamen"));
-        terasa.polozPredmet(new Predmet("hodinky"));
-        terasa.polozPredmet(new Predmet("navleky"));
-        labak.polozPredmet(new Predmet("mys"));
-        bufet.polozPredmet(new Predmet("bageta"));
+        terasa.polozPredmet(new ObycajnyPredmet("kamen"));
+        terasa.polozPredmet(new Hodinky());
+        terasa.polozPredmet(new Navleky());
+        labak.polozPredmet(new ObycajnyPredmet("mys"));
+        bufet.polozPredmet(new ObycajnyPredmet("bageta"));
 
         this.startovaciaMiestnost = terasa;  // startovacia miestnost hry
     }

@@ -31,7 +31,7 @@ public class Hrac {
 
     public void polozPredmet(String predmet) {
         Predmet pokladanyPredmet = this.inventar.get(predmet);
-        if (pokladanyPredmet.daSaPolozit()) {
+        if (pokladanyPredmet != null && pokladanyPredmet.daSaPolozit()) {
             this.inventar.remove(predmet);
             this.aktualnaMiestnost.polozPredmet(pokladanyPredmet);
         }

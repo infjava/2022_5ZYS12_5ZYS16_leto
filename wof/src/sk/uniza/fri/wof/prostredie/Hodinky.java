@@ -17,4 +17,9 @@ public class Hodinky implements Predmet {
         LocalDateTime now = LocalDateTime.now();
         System.out.println(dtf.format(now));
     }
+
+    @Override
+    public boolean daSaPolozit() {
+        return true;
+    }
 }

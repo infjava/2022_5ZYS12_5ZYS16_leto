@@ -6,4 +6,6 @@ public interface Predmet {
     String getNazov();
 
     void pouziPredmet(Hrac hrac);
+
+    boolean daSaPolozit();
 }

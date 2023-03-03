@@ -1,6 +1,6 @@
 package sk.uniza.fri.wof.prostredie;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Trieda sk.uniza.fri.wof.prostredie.Miestnost realizuje jednu miestnost/priestor v celom priestore hry.
@@ -16,11 +16,8 @@ import java.util.ArrayList;
  */
 public class Miestnost {
     private final String popisMiestnosti;
-    private Miestnost severnyVychod;
-    private Miestnost juznyVychod;
-    private Miestnost vychodnyVychod;
-    private Miestnost zapadnyVychod;
-    private final ArrayList<Predmet> predmety;
+    private final HashMap<String, Miestnost> vychody;
+    private final HashMap<String, Predmet> predmety;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -31,31 +28,12 @@ public class Miestnost {
      */
     public Miestnost(String popis) {
         this.popisMiestnosti = popis;
-        this.predmety = new ArrayList<>();
+        this.vychody = new HashMap<>();
+        this.predmety = new HashMap<>();
     }
 
-    /**
-     * Nastavi vychody z miestnosti. Kazdy vychod je urceny bud odkazom 
-     * na miestnost alebo hodnotou null, ak vychod tym smerom neexistuje.
-     * 
-     * @param sever miestnost smerom na sever.
-     * @param vychod miestnost smerom na vychod.
-     * @param juh miestnost smerom na juh.
-     * @param zapad miestnost smerom na zapad.
-     */
-    public void nastavVychody(Miestnost sever, Miestnost vychod, Miestnost juh, Miestnost zapad) {
-        if (sever != null) {
-            this.severnyVychod = sever;
-        }
-        if (vychod != null) {
-            this.vychodnyVychod = vychod;
-        }
-        if (juh != null) {
-            this.juznyVychod = juh;
-        }
-        if (zapad != null) {
-            this.zapadnyVychod = zapad;
-        }
+    public void nastavVychod(String smer, Miestnost miestnost) {
+        this.vychody.put(smer, miestnost);
     }
 
     /**
@@ -63,7 +41,7 @@ public class Miestnost {
      * @param predmet pokladany predmet
      */
     public void polozPredmet(Predmet predmet) {
-        this.predmety.add(predmet);
+        this.predmety.put(predmet.getNazov(), predmet);
     }
 
     /**
@@ -72,50 +50,27 @@ public class Miestnost {
      * @return zdvihnuty predmet
      */
     public Predmet zoberPredmet(String nazov) {
-        for (Predmet kontrolovanyPredmet : this.predmety) {
-            if (kontrolovanyPredmet.getNazov().equals(nazov)) {
-                this.predmety.remove(kontrolovanyPredmet);
-                return kontrolovanyPredmet;
-            }
-        }
-
-        return null;
+        return this.predmety.remove(nazov);
     }
 
     public void vypisInfoOMiestnosti() {
         System.out.println("Teraz si v miestnosti " + this.popisMiestnosti);
         System.out.print("Vychody: ");
-        if (this.severnyVychod != null) {
-            System.out.print("sever ");
+        for (var vychod : this.vychody.keySet()) {
+            System.out.printf("%s ", vychod);
         }
-        if (this.vychodnyVychod != null) {
-            System.out.print("vychod ");
-        }
-        if (this.juznyVychod != null) {
-            System.out.print("juh ");
-        }
-        if (this.zapadnyVychod != null) {
-            System.out.print("zapad ");
-        }
-
         System.out.println();
 
         if (!this.predmety.isEmpty()) {
             System.out.print("Predmety v miestnosti: ");
-            for (Predmet predmet : this.predmety) {
-                System.out.printf("%s ", predmet.getNazov());
+            for (var predmet : this.predmety.keySet()) {
+                System.out.printf("%s ", predmet);
             }
             System.out.println();
         }
     }
 
-    public Miestnost getMiestnost(String smer) {
-        return switch (smer) {
-            case "sever" -> this.severnyVychod;
-            case "vychod" -> this.vychodnyVychod;
-            case "juh" -> this.juznyVychod;
-            case "zapad" -> this.zapadnyVychod;
-            default -> null;
-        };
+    public Miestnost getMiestnostVSmere(String smer) {
+        return this.vychody.get(smer);
     }
 }

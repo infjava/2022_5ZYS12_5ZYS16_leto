@@ -14,14 +14,14 @@ import java.util.Scanner;
  * @version 2012.02.21
  */
 public class Parser {
-    private final NazvyPrikazov prikazy;  // odkaz na pripustne nazvy prikazov
+    private final VykonavacPrikazov vykonavacPrikazov;  // odkaz na pripustne nazvy prikazov
     private final Scanner citac;         // zdroj vstupov od hraca
 
     /**
      * Vytvori citac na citanie vstupov z terminaloveho okna.
      */
-    public Parser() {
-        this.prikazy = new NazvyPrikazov();
+    public Parser(VykonavacPrikazov vykonavacPrikazov) {
+        this.vykonavacPrikazov = vykonavacPrikazov;
         this.citac = new Scanner(System.in);
     }
 
@@ -47,7 +47,7 @@ public class Parser {
         }
 
         // kontrola platnosti prikazu
-        if (this.prikazy.jePrikaz(prikaz)) {
+        if (this.vykonavacPrikazov.jePrikaz(prikaz)) {
             // vytvori platny prikaz
             return new Prikaz(prikaz, parameter);
         } else {

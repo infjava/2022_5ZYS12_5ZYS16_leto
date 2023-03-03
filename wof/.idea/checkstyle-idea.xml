@@ -12,7 +12,7 @@
       <list>
         <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
         <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
-        <ConfigurationLocation id="1d714083-0a5d-4b34-afea-8797ce20b68c" type="HTTP_URL" scope="All" description="FRI">https://juno.kst.fri.uniza.sk/~duracik@kst/inf/default_checks.xml</ConfigurationLocation>
+        <ConfigurationLocation id="e3efe22d-b2ef-4ed7-9853-962415edf40a" type="HTTP_URL" scope="All" description="FRI">https://juno.kst.fri.uniza.sk/~duracik@kst/inf/default_checks.xml</ConfigurationLocation>
       </list>
     </option>
   </component>

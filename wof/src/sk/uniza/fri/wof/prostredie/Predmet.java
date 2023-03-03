@@ -1,7 +1,7 @@
 package sk.uniza.fri.wof.prostredie;
 
 public class Predmet {
-    private String nazov;
+    private final String nazov;
 
     public Predmet(String nazov) {
         this.nazov = nazov;

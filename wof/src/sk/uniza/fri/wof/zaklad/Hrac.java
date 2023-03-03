@@ -3,20 +3,15 @@ package sk.uniza.fri.wof.zaklad;
 import sk.uniza.fri.wof.prostredie.Miestnost;
 import sk.uniza.fri.wof.prostredie.Predmet;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Hrac {
     private Miestnost aktualnaMiestnost;
     private final HashMap<String, Predmet> inventar;
-    private boolean navlekyObute;
 
     public Hrac(Miestnost aktualnaMiestnost) {
         this.aktualnaMiestnost = aktualnaMiestnost;
         this.inventar = new HashMap<>();
-        this.navlekyObute = false;
     }
 
     public void posunVSmere(String smer) {
@@ -59,24 +54,11 @@ public class Hrac {
     }
 
     public void pouziPredmet(String nazovPredmetu) {
-        if (this.inventar.containsKey(nazovPredmetu)) {
-            switch (nazovPredmetu) {
-                case "navleky":
-                    if (!this.navlekyObute) {
-                        System.out.println("Obul si si navleky");
-                    } else {
-                        System.out.println("Vyzul si si navleky");
-                    }
-                    this.navlekyObute = !this.navlekyObute;
-                    break;
-                case "hodinky":
-                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-                    LocalDateTime now = LocalDateTime.now();
-                    System.out.println(dtf.format(now));
-                    break;
-                default:
-                    System.out.printf("%s sa neda pouzit%n", nazovPredmetu);
-            }
+        var predmet = this.inventar.get(nazovPredmetu);
+
+        if (predmet != null) {
+            predmet.pouziPredmet(this);
         }
     }
+
 }

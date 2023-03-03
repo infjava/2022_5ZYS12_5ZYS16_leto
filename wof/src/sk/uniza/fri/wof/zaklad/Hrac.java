@@ -11,10 +11,12 @@ import java.util.HashMap;
 public class Hrac {
     private Miestnost aktualnaMiestnost;
     private final HashMap<String, Predmet> inventar;
+    private boolean navlekyObute;
 
     public Hrac(Miestnost aktualnaMiestnost) {
         this.aktualnaMiestnost = aktualnaMiestnost;
         this.inventar = new HashMap<>();
+        this.navlekyObute = false;
     }
 
     public void posunVSmere(String smer) {
@@ -59,6 +61,14 @@ public class Hrac {
     public void pouziPredmet(String nazovPredmetu) {
         if (this.inventar.containsKey(nazovPredmetu)) {
             switch (nazovPredmetu) {
+                case "navleky":
+                    if (!this.navlekyObute) {
+                        System.out.println("Obul si si navleky");
+                    } else {
+                        System.out.println("Vyzul si si navleky");
+                    }
+                    this.navlekyObute = !this.navlekyObute;
+                    break;
                 case "hodinky":
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
                     LocalDateTime now = LocalDateTime.now();

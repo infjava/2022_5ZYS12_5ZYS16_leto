@@ -21,6 +21,7 @@ public class HernySvet {
 
         terasa.polozPredmet(new Predmet("kamen"));
         terasa.polozPredmet(new Predmet("hodinky"));
+        terasa.polozPredmet(new Predmet("navleky"));
         labak.polozPredmet(new Predmet("mys"));
         bufet.polozPredmet(new Predmet("bageta"));
 

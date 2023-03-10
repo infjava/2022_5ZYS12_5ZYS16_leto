@@ -1,6 +1,4 @@
-package sk.uniza.fri.wof.prostredie;
-
-import sk.uniza.fri.wof.zaklad.Hrac;
+package sk.uniza.fri.wof.prostredie.predmety;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,14 +10,19 @@ public class Hodinky implements Predmet {
     }
 
     @Override
-    public void pouziPredmet(Hrac hrac) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
+    public void pouzi() {
+        var dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+        var now = LocalDateTime.now();
         System.out.println(dtf.format(now));
     }
 
     @Override
-    public boolean daSaPolozit() {
+    public boolean mozemPolozit() {
+        return true;
+    }
+
+    @Override
+    public boolean jeNasadeny() {
         return true;
     }
 }

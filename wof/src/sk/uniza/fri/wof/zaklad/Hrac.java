@@ -1,9 +1,10 @@
 package sk.uniza.fri.wof.zaklad;
 
 import sk.uniza.fri.wof.prostredie.Miestnost;
-import sk.uniza.fri.wof.prostredie.Predmet;
+import sk.uniza.fri.wof.prostredie.predmety.Predmet;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 public class Hrac {
     private Miestnost aktualnaMiestnost;
@@ -15,28 +16,43 @@ public class Hrac {
     }
 
     public void posunVSmere(String smer) {
-        Miestnost novaMiestnost = this.aktualnaMiestnost.getMiestnostVSmere(smer);
-        if (novaMiestnost == null) {
+
+        var vychod = this.aktualnaMiestnost.getVychodVSmere(smer);
+        if (vychod.isEmpty()) {
             System.out.println("Tam nie je vychod!");
+        } else if (!vychod.get().mozemVstupit(this)) {
+            System.out.println("Vstup do tejto miestnosti ti nebol povolený!");
         } else {
-            this.aktualnaMiestnost = novaMiestnost;
+            this.aktualnaMiestnost = vychod.get().dajMiestnost();
             this.aktualnaMiestnost.vypisInfoOMiestnosti();
         }
     }
 
     public void zoberPredmet(String predmet) {
-        Predmet zdvihnutyPredmet = this.aktualnaMiestnost.zoberPredmet(predmet);
-        if (zdvihnutyPredmet != null) {
-            this.inventar.put(zdvihnutyPredmet.getNazov(), zdvihnutyPredmet);
+        var zdvihnutyPredmet = this.aktualnaMiestnost.zoberPredmet(predmet);
+        if (zdvihnutyPredmet.isPresent()) {
+            this.inventar.put(zdvihnutyPredmet.get().getNazov(), zdvihnutyPredmet.get());
+        }
+        else {
+            System.out.println("Tento predmet sa v miestnosti nenachádza.");
         }
     }
 
     public void polozPredmet(String predmet) {
-        Predmet pokladanyPredmet = this.inventar.get(predmet);
-        if (pokladanyPredmet != null && pokladanyPredmet.daSaPolozit()) {
-            this.inventar.remove(predmet);
-            this.aktualnaMiestnost.polozPredmet(pokladanyPredmet);
+        Predmet pokladanyPredmet = this.inventar.remove(predmet);
+        if (pokladanyPredmet == null) {
+            System.out.println("Tento predmet v inventári nemáš");
         }
+        else if (!pokladanyPredmet.mozemPolozit()) {
+            this.inventar.put(pokladanyPredmet.getNazov(), pokladanyPredmet);
+            System.out.printf("Predmet %s sa nedá položiť%n", pokladanyPredmet.getNazov());
+            return;
+        }
+        this.aktualnaMiestnost.polozPredmet(pokladanyPredmet);
+    }
+
+    public Optional<Predmet> najdiPredmet(String nazov) {
+        return Optional.ofNullable(this.inventar.get(nazov));
     }
 
     /**
@@ -54,16 +70,16 @@ public class Hrac {
         }
     }
 
+    public void pouziPredmet(String nazov) {
+        var predmet = this.inventar.get(nazov);
+        if (predmet == null) {
+            System.out.println("Tento predmet nemáš");
+            return;
+        }
+        predmet.pouzi();
+    }
+
     public Miestnost getAktualnaMiestnost() {
         return this.aktualnaMiestnost;
     }
-
-    public void pouziPredmet(String nazovPredmetu) {
-        var predmet = this.inventar.get(nazovPredmetu);
-
-        if (predmet != null) {
-            predmet.pouziPredmet(this);
-        }
-    }
-
 }

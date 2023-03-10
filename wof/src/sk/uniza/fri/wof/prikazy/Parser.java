@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @version 2012.02.21
  */
 public class Parser {
-    private final VykonavacPrikazov vykonavacPrikazov;  // odkaz na pripustne nazvy prikazov
+    private final VykonavacPrikazov vykonavacPrikazov;
     private final Scanner citac;         // zdroj vstupov od hraca
 
     /**

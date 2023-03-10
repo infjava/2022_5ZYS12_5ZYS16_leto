@@ -20,11 +20,6 @@ public class Radio implements Predmet, ReakciaNaChodenie {
         return true;
     }
 
-    @Override
-    public boolean jeNasadeny() {
-        return false;
-    }
-
     public void vlozBaterky() {
         this.mamVlozeneBaterky = true;
     }

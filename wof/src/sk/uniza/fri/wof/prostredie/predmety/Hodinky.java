@@ -22,9 +22,4 @@ public class Hodinky implements Predmet {
     public boolean mozemPolozit() {
         return true;
     }
-
-    @Override
-    public boolean jeNasadeny() {
-        return true;
-    }
 }

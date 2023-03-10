@@ -23,9 +23,4 @@ public class Baterky implements Predmet {
     public boolean mozemPolozit() {
         return true;
     }
-
-    @Override
-    public boolean jeNasadeny() {
-        return false;
-    }
 }

@@ -11,11 +11,6 @@ public class Radio implements Predmet, ReakciaNaChodenie {
     }
 
     @Override
-    public void pouzi(Hrac hrac) {
-        System.out.println("Predmet radio sa neda pouzit");
-    }
-
-    @Override
     public boolean mozemPolozit() {
         return true;
     }

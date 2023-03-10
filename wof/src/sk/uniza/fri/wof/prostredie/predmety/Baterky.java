@@ -2,7 +2,7 @@ package sk.uniza.fri.wof.prostredie.predmety;
 
 import sk.uniza.fri.wof.zaklad.Hrac;
 
-public class Baterky implements Predmet {
+public class Baterky implements Predmet, Pouzitelny {
     @Override
     public String getNazov() {
         return "baterky";

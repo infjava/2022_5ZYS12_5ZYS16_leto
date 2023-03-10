@@ -15,11 +15,6 @@ public class ObycajnyPredmet implements Predmet {
     }
 
     @Override
-    public void pouzi(Hrac hrac) {
-        System.out.printf("Predmet %s sa použiť nedá%n", this.nazov);
-    }
-
-    @Override
     public boolean mozemPolozit() {
         return true;
     }

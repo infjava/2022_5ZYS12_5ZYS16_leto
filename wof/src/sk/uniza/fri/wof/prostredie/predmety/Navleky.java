@@ -2,7 +2,7 @@ package sk.uniza.fri.wof.prostredie.predmety;
 
 import sk.uniza.fri.wof.zaklad.Hrac;
 
-public class Navleky implements Predmet {
+public class Navleky implements Predmet, Pouzitelny {
     private boolean suObute;
 
     public Navleky() {

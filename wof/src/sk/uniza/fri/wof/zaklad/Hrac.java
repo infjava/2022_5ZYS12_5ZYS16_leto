@@ -26,7 +26,9 @@ public class Hrac {
 
     public void zoberPredmet(String predmet) {
         Predmet zdvihnutyPredmet = this.aktualnaMiestnost.zoberPredmet(predmet);
-        this.inventar.put(zdvihnutyPredmet.getNazov(), zdvihnutyPredmet);
+        if (zdvihnutyPredmet != null) {
+            this.inventar.put(zdvihnutyPredmet.getNazov(), zdvihnutyPredmet);
+        }
     }
 
     public void polozPredmet(String predmet) {

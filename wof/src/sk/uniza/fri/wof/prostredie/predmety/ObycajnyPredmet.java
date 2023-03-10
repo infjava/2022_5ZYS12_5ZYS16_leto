@@ -1,5 +1,7 @@
 package sk.uniza.fri.wof.prostredie.predmety;
 
+import sk.uniza.fri.wof.zaklad.Hrac;
+
 public class ObycajnyPredmet implements Predmet {
     private final String nazov;
 
@@ -13,7 +15,7 @@ public class ObycajnyPredmet implements Predmet {
     }
 
     @Override
-    public void pouzi() {
+    public void pouzi(Hrac hrac) {
         System.out.printf("Predmet %s sa použiť nedá%n", this.nazov);
     }
 

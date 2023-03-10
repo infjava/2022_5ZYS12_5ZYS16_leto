@@ -76,7 +76,7 @@ public class Hrac {
             System.out.println("Tento predmet nemáš");
             return;
         }
-        predmet.pouzi();
+        predmet.pouzi(this);
     }
 
     public Miestnost getAktualnaMiestnost() {

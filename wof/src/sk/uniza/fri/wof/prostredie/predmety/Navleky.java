@@ -1,5 +1,7 @@
 package sk.uniza.fri.wof.prostredie.predmety;
 
+import sk.uniza.fri.wof.zaklad.Hrac;
+
 public class Navleky implements Predmet {
     private boolean suObute;
 
@@ -13,7 +15,7 @@ public class Navleky implements Predmet {
     }
 
     @Override
-    public void pouzi() {
+    public void pouzi(Hrac hrac) {
         if (this.suObute) {
             this.suObute = false;
             System.out.println("Prave si si vyzul návleky");

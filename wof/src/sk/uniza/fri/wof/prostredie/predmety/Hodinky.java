@@ -27,9 +27,4 @@ public class Hodinky implements Predmet {
     public boolean jeNasadeny() {
         return true;
     }
-
-    @Override
-    public void zmenaMiestnosti() {
-
-    }
 }

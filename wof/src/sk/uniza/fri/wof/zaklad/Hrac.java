@@ -1,10 +1,7 @@
 package sk.uniza.fri.wof.zaklad;
 
 import sk.uniza.fri.wof.prostredie.Miestnost;
-import sk.uniza.fri.wof.prostredie.predmety.Pouzitelny;
-import sk.uniza.fri.wof.prostredie.predmety.Predmet;
-import sk.uniza.fri.wof.prostredie.predmety.Radio;
-import sk.uniza.fri.wof.prostredie.predmety.ReakciaNaChodenie;
+import sk.uniza.fri.wof.prostredie.predmety.*;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -81,6 +78,17 @@ public class Hrac {
     public void pouziPredmet(String nazov) {
         var predmet = this.inventar.get(nazov);
         if (predmet == null) {
+            var vybavenie = this.aktualnaMiestnost.najdiVybavenie(nazov);
+
+            if (vybavenie.isPresent()) {
+                if (vybavenie.get() instanceof Pouzitelny pouzitelneVybavenie) {
+                    pouzitelneVybavenie.pouzi(this);
+                } else {
+                    System.out.println("Vybavenie sa neda pouzit");
+                }
+                return;
+            }
+
             System.out.println("Tento predmet nemáš");
             return;
         }
@@ -93,5 +101,9 @@ public class Hrac {
 
     public Miestnost getAktualnaMiestnost() {
         return this.aktualnaMiestnost;
+    }
+
+    public void pridajDoInventara(Predmet predmet) {
+        this.inventar.put(predmet.getNazov(), predmet);
     }
 }

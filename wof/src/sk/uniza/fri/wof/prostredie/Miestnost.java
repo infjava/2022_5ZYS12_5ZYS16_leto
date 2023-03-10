@@ -1,6 +1,8 @@
 package sk.uniza.fri.wof.prostredie;
 
 import sk.uniza.fri.wof.prostredie.predmety.Predmet;
+import sk.uniza.fri.wof.prostredie.vybavenie.Automat;
+import sk.uniza.fri.wof.prostredie.vybavenie.Vybavenie;
 import sk.uniza.fri.wof.prostredie.vychody.ObycanyVychod;
 import sk.uniza.fri.wof.prostredie.vychody.Vychod;
 
@@ -23,6 +25,7 @@ public class Miestnost {
     private final String popisMiestnosti;
     private final HashMap<String, Vychod> vychody;
     private final HashMap<String, Predmet> predmety;
+    private final HashMap<String, Vybavenie> vybavenie;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -35,6 +38,7 @@ public class Miestnost {
         this.popisMiestnosti = popis;
         this.vychody = new HashMap<>();
         this.predmety = new HashMap<>();
+        this.vybavenie = new HashMap<>();
     }
 
     public void nastavVychod(String smer, Miestnost miestnost) {
@@ -77,10 +81,24 @@ public class Miestnost {
             }
             System.out.println();
         }
+
+        if (!this.vybavenie.isEmpty()) {
+            System.out.println("Vybavenie miestnosti: ");
+            for (var vybavenie : this.vybavenie.values()) {
+                System.out.printf("    %s - %s%n", vybavenie.getNazov(), vybavenie.getPopis());
+            }
+        }
     }
 
     public Optional<Vychod> getVychodVSmere(String smer) {
         return Optional.ofNullable(this.vychody.get(smer));
     }
 
+    public void postavVybavenie(Vybavenie vybavenie) {
+        this.vybavenie.put(vybavenie.getNazov(), vybavenie);
+    }
+
+    public Optional<Vybavenie> najdiVybavenie(String nazov) {
+        return Optional.ofNullable(this.vybavenie.get(nazov));
+    }
 }

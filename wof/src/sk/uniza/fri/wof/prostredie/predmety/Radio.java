@@ -12,11 +12,7 @@ public class Radio implements Predmet {
 
     @Override
     public void pouzi(Hrac hrac) {
-        if (this.mamVlozeneBaterky) {
-            System.out.println("♩♩♫♫♬♬♪\uD83C\uDFB6\uD83C\uDFB5");
-        } else {
-            System.out.println("Predmet radio sa neda pouzit");
-        }
+        System.out.println("Predmet radio sa neda pouzit");
     }
 
     @Override
@@ -31,5 +27,11 @@ public class Radio implements Predmet {
 
     public void vlozBaterky() {
         this.mamVlozeneBaterky = true;
+    }
+
+    public void zmenaMiestnosti() {
+        if (this.mamVlozeneBaterky) {
+            System.out.println("♩♩♫♫♬♬♪\uD83C\uDFB6\uD83C\uDFB5");
+        }
     }
 }

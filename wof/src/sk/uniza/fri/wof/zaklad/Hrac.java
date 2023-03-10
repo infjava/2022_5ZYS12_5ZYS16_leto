@@ -26,8 +26,8 @@ public class Hrac {
         } else {
             this.aktualnaMiestnost = vychod.get().dajMiestnost();
             this.aktualnaMiestnost.vypisInfoOMiestnosti();
-            if (this.inventar.containsKey("radio")) {
-                ((Radio) this.inventar.get("radio")).zmenaMiestnosti();
+            for (Predmet predmet : this.inventar.values()) {
+                predmet.zmenaMiestnosti();
             }
         }
     }

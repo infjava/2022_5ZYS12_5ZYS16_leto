@@ -35,4 +35,9 @@ public class Navleky implements Predmet {
     public boolean jeNasadeny() {
         return this.suObute;
     }
+
+    @Override
+    public void zmenaMiestnosti() {
+
+    }
 }

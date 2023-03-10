@@ -29,6 +29,7 @@ public class Radio implements Predmet {
         this.mamVlozeneBaterky = true;
     }
 
+    @Override
     public void zmenaMiestnosti() {
         if (this.mamVlozeneBaterky) {
             System.out.println("♩♩♫♫♬♬♪\uD83C\uDFB6\uD83C\uDFB5");

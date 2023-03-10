@@ -28,4 +28,9 @@ public class Baterky implements Predmet {
     public boolean jeNasadeny() {
         return false;
     }
+
+    @Override
+    public void zmenaMiestnosti() {
+
+    }
 }

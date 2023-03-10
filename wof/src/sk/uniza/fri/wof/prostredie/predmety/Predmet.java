@@ -10,4 +10,6 @@ public interface Predmet {
     boolean mozemPolozit();
 
     boolean jeNasadeny();
+
+    void zmenaMiestnosti();
 }
